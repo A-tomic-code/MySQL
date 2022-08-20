@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a la escuela de Daniel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- BOOTSTRAP -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-dark">
+    <main class="main ">
+        <header>
+
+            <!-- NAVBAR -->
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+
+                    <a class="navbar-brand" href="index.html">Proyecto de NodeJS y MySQL</a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="alumnos.html">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                        </ul>
+
+                        <span class="navbar-text">
+                            Navbar text with an inline element
+                        </span>
+                        
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="page d-flex justify-content-center align-items-center">
+            <div class="container">
+
+                <!-- TITULO -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <p class="fs-4 text-white text-center py-4">En este proyecto se conecta el Front con el back mediante una
+                            API REST se Utiliza el Módulo Express de NodeJS y MySQL
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TARJETAS -->
+
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-3">
+
+                        <div class="card">
+                            <h5 class="card-header">Alumnos</h5>
+                            <div class="card-body">
+                                <p class="card-text">Aquí se pueden consultar/modficar
+                                    los datos relevantes a los alumnos de la escuela.
+                                </p>
+                                <a href="alumnos.html" class="btn btn-primary">Probarlo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                <!--  -->
+                
+                    <div class="col-3">
+                        <div class="card">
+                            <h5 class="card-header">Notas</h5>
+                            <div class="card-body">
+                                <p class="card-text">Aquí se pueden consultar/modficar
+                                    los datos relevantes a las notas de los alumnos de la escuela.</p>
+                                <a href="#" class="btn btn-primary">Probarlo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                <!--  -->
+
+                    <div class="col-3">
+                        <div class="card">
+                            <h5 class="card-header">Media</h5>
+                            <div class="card-body">
+                                <p class="card-text">En este endpoint se puede consultar media de
+                                    todas las notas de un alumno
+                                </p>
+                                <a href="#" class="btn btn-primary">Probarlo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                <!--  -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+</body>
+
+</html>

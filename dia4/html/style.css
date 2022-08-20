@@ -1,0 +1,29 @@
+.main{
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.page{
+    height: 90vh;
+}
+
+.card {
+    height: 220px !important;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-body a{
+    width: 60%;
+    align-self: flex-end;
+}
+
+.alumno__botones button{
+   width: 24%;
+   
+}
+.alumno__botones button:not(:last-child){
+    margin-right: 1%;
+}
