@@ -11,6 +11,12 @@ const id_input = inputs[4] //!
 
 const base_url = "http://localhost:5555/notas"
 
+
+
+table.style.height = document.querySelector('form').style.height;
+
+
+
 function parseFormData() {
     let student_id = student_id_input.value ? student_id_input.value : -1;
     let subject_id = subject_id_input.value ? subject_id_input.value : -1;
@@ -63,8 +69,8 @@ function consultar() {
                     `
                     <tr>
                         <td>${nota.id_}</td>
-                        <td>${nota.student_id}</td>
-                        <td>${nota.subject_id}</td>
+                        <td>${nota.first_name + ' ' + nota.last_name}</td>
+                        <td>${nota.title}</td>
                         <td>${nota.date}</td>
                         <td>${nota.mark}</td>
                     </tr>

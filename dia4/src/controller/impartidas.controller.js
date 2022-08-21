@@ -6,7 +6,7 @@ function getImpartidas(req, res){
     
     let sql =
     `
-    SELECT teachers.id_ AS 'teacher_id', subjects.title AS 'subject_title' FROM subject_teacher
+    SELECT teachers.first_name , teachers.last_name, subjects.title, subject_teacher.teacher_id FROM subject_teacher
     JOIN teachers ON (subject_teacher.teacher_id = teachers.id_)
     JOIN subjects ON (subject_teacher.subject_id = subjects.id_)
     `
@@ -42,6 +42,7 @@ function getImpartidas(req, res){
 
                 }else{
 
+                    console.log(result);
                     response = {
                         error: false,
                         code: 200,

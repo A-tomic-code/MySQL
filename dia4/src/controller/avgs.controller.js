@@ -25,7 +25,13 @@ function getAVG(req, res) {
                 }
 
             } else {
-                let sql = `SELECT AVG(mark) AS avg FROM marks WHERE ID_ = ${student_id}`
+                let sql =`
+                    SELECT AVG(mark) AS avg, students.first_name, students.last_name, marks.student_id 
+                    FROM marks
+                    RIGHT JOIN students ON (marks.student_id = students.id_)
+                    GROUP BY students.first_name, students.last_name, marks.student_id
+                    HAVING marks.student_id = ${student_id}
+                    `
 
                 database.query(sql, (error, result) => {
 
@@ -38,11 +44,13 @@ function getAVG(req, res) {
                         }
                     } else {
 
+                        console.log(result)
+
                         response = {
                             error: false,
                             code: 200,
                             message: 'Average got successfully',
-                            data: result[0].avg
+                            data: result
                         }
                     }
 
@@ -54,4 +62,4 @@ function getAVG(req, res) {
     }
 }
 
-module.exports = {getAVG}
+module.exports = { getAVG }

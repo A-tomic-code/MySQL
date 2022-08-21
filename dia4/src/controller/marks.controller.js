@@ -2,7 +2,14 @@ const database = require('../database');
 
 function getMark(req, res) {
     let response;
-    let sql = 'SELECT * FROM marks';
+
+    let sql = `
+            SELECT students.id_, students.first_name, students.last_name, subjects.title,
+            marks.date, marks.mark
+            FROM school.marks
+            JOIN students ON(marks.student_id = students.id_)
+            JOIN subjects ON(marks.subject_id = subjects.id_)
+            `
 
     if (req.query.id) {
         sql += ` WHERE id_ = ${req.query.id}`

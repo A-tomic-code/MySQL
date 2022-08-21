@@ -5,13 +5,16 @@
     width: 100vw;
     min-height: 100vh;
 }
-
+header{
+    
+    box-shadow: 0px -5px 15px rgba(255, 255, 255, 0.2);
+}
 .page{
     height: 90vh;
 }
 
 .card {
-    height: 220px !important;
+    min-height: 220px !important;
 }
 .card-body{
     display: flex;
@@ -46,4 +49,12 @@ form{
 }
 ::placeholder{
     color:gray;
+}
+
+a{
+    font-weight: 400 !important;
+    color: grey !important;
+}
+a:hover{
+    color: lightgray !important
 }

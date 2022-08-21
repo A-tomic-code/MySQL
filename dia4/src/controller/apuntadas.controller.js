@@ -27,7 +27,7 @@ function getApuntadas(req, res) {
             } else {
                 let sql = 
                 `
-                SELECT students.id_ , subjects.title FROM marks
+                SELECT students.id_ , students.first_name, students.last_name, subjects.title FROM marks
                 JOIN students ON (marks.student_id = students.id_)
                 JOIN subjects ON (marks.subject_id = subjects.id_) 
                 WHERE students.id_ = ${student_id}
@@ -43,6 +43,8 @@ function getApuntadas(req, res) {
                             message: error.message,
                         }
                     } else {
+
+                        console.log(result);
 
                         response = {
                             error: false,
