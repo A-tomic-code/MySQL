@@ -164,7 +164,7 @@ function deleteStudent(req, res) {
                     response = {
                         error: false,
                         codigo: 400,
-                        message: 'Data delted successfully'
+                        message: 'Data deleted successfully'
                     }
                 }
 

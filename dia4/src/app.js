@@ -4,6 +4,9 @@ const cors = require('cors');
 const errorHandling = require('./error/errorHandling')
 const studentsRouter = require('./router/students.router')
 const marksRouter = require('./router/marks.router');
+const avgsRouter = require('./router/avgs.router');
+const apuntadasRouter = require('./router/apuntadas.router');
+const impartidasRouter = require('./router/impartidas.router');
 
 const app = express();
 
@@ -15,6 +18,9 @@ app.use(express.json());
 //routers
 app.use(studentsRouter);
 app.use(marksRouter);
+app.use(avgsRouter);
+app.use(apuntadasRouter);
+app.use(impartidasRouter);
 
 app.use( (req, res, next) => {
     res.status(404);
