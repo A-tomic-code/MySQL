@@ -5,5 +5,3 @@ class Student{
         this.group_id = group_id;
     }
 }
-
-module.exports = Student;

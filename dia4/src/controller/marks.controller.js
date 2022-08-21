@@ -1,8 +1,8 @@
 const database = require('../database');
 
-function getStudent(req, res) {
+function getMark(req, res) {
     let response;
-    let sql = 'SELECT * FROM students';
+    let sql = 'SELECT * FROM marks';
 
     if (req.query.id) {
         sql += ` WHERE id_ = ${req.query.id}`
@@ -36,30 +36,22 @@ function getStudent(req, res) {
             });
         }
     })
-
-
-    //EN ESTA LINEA RESPONSE SIEMPRE ES UNDEFINED CREO QUE ES POR TEMAS DE SINCRONIA,
-    //PREGUNTAR A LOS PROFES EL LUNES !!!!!!
-
 }
 
-function postStudent(req, res) {
+function postMark(req, res) {
     let response;
 
-    // AQUI ABAJO SE VEN LOS NOMBRES DE LOS CAMPOS QUE HAY EN LA REQUEST
-    // Y QUE LUEGO NECESITO RECORDAR PARA HACER EL FRONT (NO TE OLVIDES DANIEL QUE LUEGO TE ESTRESAS)
-    console.log(req.body);
-
-    let student_first_name = req.body.first_name;
-    let student_last_name = req.body.last_name;
-    let student_group_id = req.body.group_id;
+    let student_id = req.body.student_id;
+    let subject_id = req.body.subject_id;
+    let date = req.body.date;
+    let mark = req.body.mark;
 
     database.connect((err) => {
         if (err) {
             console.error('ERROR CONNECTING TO DATABASE');
         } else {
-            let sql = `INSERT INTO students(first_name, last_name, group_id) VALUES (?, ?, ?)`
-            let params = [student_first_name, student_last_name, student_group_id]
+            let sql = `INSERT INTO marks(student_id, subject_id, date, mark) VALUES (?, ?, ?, ?)`
+            let params = [student_id, subject_id, date, mark]
 
             database.query(sql, params, (error, result) => {
                 if (error) {
@@ -85,29 +77,25 @@ function postStudent(req, res) {
 
 }
 
-function putStudent(req, res) {
-
-    console.log('PUT');
-    console.log('-------------');
-    console.log(req.body);
-    console.log('\n');
-
+function putMark(req, res) {
     let response;
 
-    let student_id_ = req.body.id //! OJO CON ESTO PARA REFERENCIARLO DESDE EL FRONT LUEGO
+    let mark_id_ = req.body.id //! OJO CON ESTO (FRONT LO NECESITA lUEGO)
 
-    let student_first_name = req.body.first_name;
-    let student_last_name = req.body.last_name;
-    let student_group_id = req.body.group_id;
+    let student_id = req.body.student_id;
+    let subject_id = req.body.subject_id;
+    let date = req.body.date;
+    let mark = req.body.mark;
 
     let sql = `
-        UPDATE students SET 
-        first_name = ?,
-        last_name = ?,
-        group_id = ?
-        WHERE (id_ = ${student_id_})
+        UPDATE marks SET 
+        student_id = ?,
+        subject_id = ?,
+        date = ?,
+        mark = ?
+        WHERE id_ = ${mark_id_}
     `
-    let params = [student_first_name, student_last_name, student_group_id];
+    let params = [student_id, subject_id, date, mark];
 
     database.connect((err) => {
         if (err) {
@@ -137,14 +125,14 @@ function putStudent(req, res) {
     });
 
 }
-function deleteStudent(req, res) {
+function deleteMark(req, res) {
     let response;
 
-    let student_id_ = req.body.id;
+    let mark_id_ = req.body.id;
 
     let sql = `
-        DELETE FROM students
-        WHERE id_ = ${student_id_}
+        DELETE FROM marks
+        WHERE id_ = ${mark_id_}
     `
 
     database.connect( (err) => {
@@ -177,8 +165,8 @@ function deleteStudent(req, res) {
 
 
 module.exports = {
-    getStudent,
-    putStudent,
-    postStudent,
-    deleteStudent
+    getMark,
+    putMark,
+    postMark,
+    deleteMark
 };

@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const errorHanding = require('./error/errorHandling')
+const errorHandling = require('./error/errorHandling')
 const studentsRouter = require('./router/students.router')
+const marksRouter = require('./router/marks.router');
 
 const app = express();
 
@@ -13,13 +14,13 @@ app.use(express.json());
 
 //routers
 app.use(studentsRouter);
-
+app.use(marksRouter);
 
 app.use( (req, res, next) => {
     res.status(404);
     res.json({message: '404 Resource not found at ' + req.url})
 })
 
-app.use(errorHanding)
+app.use(errorHandling)
 
 module.exports = app;
