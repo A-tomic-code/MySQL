@@ -74,7 +74,7 @@ function apuntadas (){
                     `
                 <tr>
                     <th>Alumno</th>
-                    <th>Asignatura/th>
+                    <th>Asignatura</th>
                 </tr>
                 `
 

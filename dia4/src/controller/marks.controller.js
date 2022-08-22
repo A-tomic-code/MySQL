@@ -48,6 +48,8 @@ function getMark(req, res) {
 function postMark(req, res) {
     let response;
 
+    console.log(req.body);
+
     let student_id = req.body.student_id;
     let subject_id = req.body.subject_id;
     let date = req.body.date;

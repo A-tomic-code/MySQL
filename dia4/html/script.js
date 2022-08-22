@@ -10,8 +10,9 @@ const student_id_input = inputs[3]
 const base_url = "http://localhost:5555/alumnos"
 
 function parseFormData() {
-    let first_name = student_first_name_input ? student_first_name_input.value : 'NoName';
-    let last_name = student_last_name_input ? student_last_name_input.value : 'NoLastName';
+
+    let first_name = student_first_name_input.value ? student_first_name_input.value : 'NoName';
+    let last_name = student_last_name_input.value ? student_last_name_input.value : 'NoLastName';
     let group_id = student_group_id_input ? student_group_id_input.value : 'NoGroup';
 
     return new Student(first_name, last_name, group_id);
